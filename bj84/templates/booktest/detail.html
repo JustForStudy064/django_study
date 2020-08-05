@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>这里将显示图书的信息</title>
+</head>
+<body>
+    <h2>选择的图书名称是:{{ book }}</h2>
+    <ul>
+        <h3>选择的图书中录入的英雄人物有:</h3>
+        {% for hero in heros %}
+            <li>{{ hero.hname }}</li>
+        {% empty %}
+            <h4>没有英雄信息</h4>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>这里显示的是图书列表</title>
+</head>
+<body>
+    <h2>下面是图书的内容</h2>
+    <ul>
+        {% for i in books %}
+        <li><a href="/books/{{ i.id }}">{{ i.id }}----{{ i.btitle }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
