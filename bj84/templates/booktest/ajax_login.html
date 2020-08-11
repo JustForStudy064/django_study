@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax登录界面</title>
+    <script src="/static/js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function(){
+            $('#btnClick').click(function () {
+                username = $('#username').val();
+                password = $('#password').val();
+                $.ajax({
+                    'url':'/ajax_login_check',
+                    'type':'post',
+                    'datatype':'json',
+                    'data':{'username':username,'password':password}
+                }).success(function(data){
+                    if(data.res == 0){
+                        $('#alert_frame').show()
+                    }else{
+                        alert('登录成功')
+                        location.href = '/index'
+                    }
+                })
+            })
+        })
+    </script>
+    <style>
+        #alert_frame{
+            color: #ff0000;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h2>登录请求界面ajax_login</h2>
+    用户名：<input type="text" id="username"><br>
+    密码：<input type="password" id="password"><br>
+    <input type="submit" value="点击提交" id="btnClick">
+    <div id="alert_frame">登录失败</div>
+</body>
+</html>

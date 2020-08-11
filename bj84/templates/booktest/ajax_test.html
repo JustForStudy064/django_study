@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试ajax请求</title>
+    <script src="/static/js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function(){
+            alert("第一次")
+            $('#btnAjax').click(function(){
+                $.ajax({
+                    'url':'/ajax_handle',
+                    // 默认不写为GET
+                    'type': 'GET',
+                    'async': true,
+                    'datatype': 'json'
+                }).success(function(data){
+                    // 进行处理
+                    alert(data.res)
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+    <input type="button" id="btnAjax" value="ajax请求">
+</body>
+</html>
