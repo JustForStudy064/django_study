@@ -76,8 +76,13 @@ WSGI_APPLICATION = 'bj84.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': 'mybj',
+        'PASSWORD': 'mysql',
+        'USER': 'root',
+        'HOST': 'localhost',
+        'PORT': 3306
     }
 }
 
@@ -85,9 +90,9 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'zh-hans'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asiz/Shanghai'
 
 USE_I18N = True
 
@@ -100,3 +105,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+
+SESSION_ENGINE = 'redis_sessions.session'
+# 服务器的ip
+SESSION_REDIS_HOST = 'localhost'
+SESSION_REDIS_PORT = 6379
+SESSION_REDIS_DB = 2
+SESSION_REDIS_PASSWORD = ''
+SESSION_REDIS_PREFIX = 'session'
